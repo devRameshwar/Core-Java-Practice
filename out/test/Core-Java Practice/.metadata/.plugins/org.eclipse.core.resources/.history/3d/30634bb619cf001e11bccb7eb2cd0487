@@ -1,0 +1,51 @@
+package com.collection.list;
+
+public class ComprableVsComprator {
+
+}
+
+class Student {
+
+	int studentId;
+	String studentName;
+	double studentFee;
+	String corse;
+
+	public int getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
+	}
+
+	public String getStudentName() {
+		return studentName;
+	}
+
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+
+	public double getStudentFee() {
+		return studentFee;
+	}
+
+	public void setStudentFee(double studentFee) {
+		this.studentFee = studentFee;
+	}
+
+	public String getCorse() {
+		return corse;
+	}
+
+	public void setCorse(String corse) {
+		this.corse = corse;
+	}
+
+	@Override
+	public String toString() {
+		return studentId + "\t" + studentName + "\t" + studentFee + "\t" + corse;
+	}
+
+}
