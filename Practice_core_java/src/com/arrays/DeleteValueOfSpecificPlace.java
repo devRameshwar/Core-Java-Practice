@@ -35,7 +35,13 @@ public class DeleteValueOfSpecificPlace {
         List<Integer> collect = IntStream.of(arr).boxed().collect(Collectors.toList());
         //Removing Data for Specific place
         collect.remove(5);
-        collect.forEach(System.out::print);
+        collect.forEach(System.out::println);
+
+        // return the resultant array
+        //collecting List to Integer Arrays
+        int[] result = collect.stream().mapToInt((Integer::intValue)).toArray();
+
+        System.out.println(Arrays.toString(result));
 
 
     }
