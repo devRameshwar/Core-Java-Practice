@@ -5,6 +5,8 @@ import java.util.List;
 
 public class ComprableVsComprator {
 
+	
+
 	public static void main(String[] args) {
 		List<Student> students = Arrays.asList(new Student(101, "Sivangi", 345292, "Maths"),
 				new Student(102, "Ajit", 54321, "Science"), new Student(105, "Manish", 56789, "Bio"),
@@ -16,18 +18,7 @@ public class ComprableVsComprator {
 	}
 
 }
-
-class SortStudents implements Comparable<Student> {
-
-	@Override
-	public int compareTo(Student o) {
-		 
-		return 1;
-	}
-
-}
-
-class Student {
+  class Student {
 
 	int studentId;
 	String studentName;
