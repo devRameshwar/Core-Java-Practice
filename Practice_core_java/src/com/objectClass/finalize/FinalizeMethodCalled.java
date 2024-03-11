@@ -21,7 +21,7 @@ public class FinalizeMethodCalled {
         object.show();
 
         //end life an object
-        object=null; //initializing null value of an object
+        object=null; //initializing null value of an object without this gc() method can't called
 
         //calling finalize() method with help of System.gc();
         System.gc(); //manual calling finalize() method
