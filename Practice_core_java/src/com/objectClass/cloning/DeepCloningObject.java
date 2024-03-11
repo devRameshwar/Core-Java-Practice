@@ -4,7 +4,7 @@ public class DeepCloningObject implements Cloneable {
 
     int a;
 
-    public static void  cloningTheObject() throws CloneNotSupportedException {
+    public static void cloningTheObject() throws CloneNotSupportedException {
 
         //creating object
         DeepCloningObject object1 = new DeepCloningObject();
