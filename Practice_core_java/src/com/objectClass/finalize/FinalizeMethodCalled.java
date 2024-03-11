@@ -1,9 +1,7 @@
 package Practice_core_java.src.com.objectClass.finalize;
 
 public class FinalizeMethodCalled {
-
     int a;
-
     @Override
     public void finalize(){
         System.out.println("finalize() is called....");
