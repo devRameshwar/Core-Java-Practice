@@ -2,7 +2,7 @@ package Practice_core_java.src.com.objectClass.equals;
 
 public class EqualsMethod {
 
-    //String class vs String Buffer class equals method
+    //String class vs String class equals method
     public static void stringEqulasAndEqualsOperator(){
         /*String class equals method  already overriding so its checks String
          content only */
