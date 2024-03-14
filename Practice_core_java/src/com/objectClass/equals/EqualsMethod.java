@@ -5,7 +5,7 @@ public class EqualsMethod {
     //String class vs String Buffer class equals method
     public static void stringEqulasAndEqualsOperator(){
         /*String class equals method  already overriding so its checks String
-         hash code  */
+         content only */
         String s1="hi";
         String s2="hi";
         //here only one object create in string class hi and s1 & s2 reflecting hi only
