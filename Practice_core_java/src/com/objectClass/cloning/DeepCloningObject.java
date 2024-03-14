@@ -1,32 +1,39 @@
 package Practice_core_java.src.com.objectClass.cloning;
 
-public class DeepCloningObject implements Cloneable {
+public class DeepCloningObject implements Cloneable{
+    public  String studentName;
+    public Integer studentScore;
 
-    int a;
+    public DeepCloningObject(String studentName, Integer studentScore) {
+        this.studentName = studentName;
+        this.studentScore = studentScore;
+    }
 
-    public static void cloningTheObject() throws CloneNotSupportedException {
-
-        //creating object
-        DeepCloningObject object1 = new DeepCloningObject();
-
-        DeepCloningObject object2 = (DeepCloningObject) object1.clone();//Deep cloning
-
-        //initializing a with help of object1
-        object1.a = 10;
-        System.out.println("value of a: " + object1.a); //output=10
-
-        //initializing a with help of object2
-        object2.a = 20;
-        System.out.println("value of a: " + object2.a); //output=20
-        //printing object1 value
-        System.out.println("value of a: " + object1.a); //output=10
-
-
+    @Override
+    public String toString() {
+        return "Students{" +
+                "studentName='" + studentName + '\'' +
+                ", studentScore=" + studentScore +
+                '}';
     }
 
     public static void main(String[] args) throws CloneNotSupportedException {
+        //creating Students object
+        DeepCloningObject student1 = new DeepCloningObject("Mahadev", 78);
+        System.out.println(student1);//Students{studentName='Mahadev', studentScore=78}
 
-        cloningTheObject();
+        //Deep cloning of current class object student1
+        DeepCloningObject student2 = (DeepCloningObject)student1.clone();
+        System.out.println(student2);//Students{studentName='Mahadev', studentScore=78}
 
+        //changing value of Instance
+        student2.studentName="Rameshwar singh";
+        student2.studentScore=51;
+        //printing student1
+        System.out.println(student1);//Students{studentName='Mahadev', studentScore=78}
+        //printing student2
+        System.out.println(student2);//Students{studentName='Rameshwar singh', studentScore=51}
+
+        //instance student1 can not be effected with student2
     }
 }

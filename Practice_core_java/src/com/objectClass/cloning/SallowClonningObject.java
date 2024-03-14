@@ -16,6 +16,8 @@ public class SallowClonningObject {
         System.out.println(player1);//Player{playerName='Rohit Sarma', playerScore=110}
         //printing player2
         System.out.println(player2);//Player{playerName='Rohit Sarma', playerScore=110}
+
+        //instance player1 can be effected with player2
     }
 }
 class Player implements Cloneable{
