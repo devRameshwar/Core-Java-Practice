@@ -1,24 +1,37 @@
 package Practice_core_java.src.com.objectClass.cloning;
 
 public class SallowClonningObject {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        //creating an object  for player
+        Player player1 = new Player("Dhoni", 98);
+        System.out.println(player1);//outPut: Player{playerName='Dhoni', playerScore=98}
 
-    int a = 10;
+        //sallow cloning
+        Player player2=player1;
+        System.out.println(player2);//output:  Player{playerName='Dhoni', playerScore=98}
 
-    public static void main(String[] args) {
+        player2.playerName="Rohit Sarma";
+        player2.playerScore=110;
+        //printing player1
+        System.out.println(player1);//Player{playerName='Rohit Sarma', playerScore=110}
+        //printing player2
+        System.out.println(player2);//Player{playerName='Rohit Sarma', playerScore=110}
+    }
+}
+class Player implements Cloneable{
+    public  String playerName;
+    public Integer playerScore;
 
-        SallowClonningObject object1 = new SallowClonningObject();
+    public Player(String playerName, Integer playerScore) {
+        this.playerName = playerName;
+        this.playerScore = playerScore;
+    }
 
-        SallowClonningObject object2 = object1; //Sallow Cloning
-
-        //initializing a with help of object1
-        object1.a = 10;
-        System.out.println("value of a: " + object1.a); //output=10
-
-        //initializing a with help of object2
-        object2.a = 20;
-        System.out.println("value of a: " + object2.a); //output=20
-        //also change object2 value
-        System.out.println("value of a: " + object1.a); //output=20
-
+    @Override
+    public String toString() {
+        return "Player{" +
+                "playerName='" + playerName + '\'' +
+                ", playerScore=" + playerScore +
+                '}';
     }
 }
