@@ -1,4 +1,5 @@
 package Practice_core_java.src.com.objectClass.toString;
+import javax.sound.midi.Soundbank;
 import  java.lang.Integer;
 public class ToStringInStringAndWrapperClass {
 
@@ -9,6 +10,10 @@ public class ToStringInStringAndWrapperClass {
         String string = new String("Sivi Singh");
         //printing String class object
         System.out.println(string);// output: Sivi Singh -> printing content
+
+        StringBuffer stringBuffer = new StringBuffer("Bhole Nath");
+        System.out.println(stringBuffer.toString());//output: Bhole Nath
+        // already overriding in String Buffer class
 
 
         String s ="333";
