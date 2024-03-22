@@ -1,17 +1,12 @@
 package Practice_core_java.src.com.java8.functionalInterface;
 
-public class InheritenceRelationship {
-    public static void main(String[] args) {
-
-        System.out.println("code run Happily...");
-    }
-}
 @FunctionalInterface
-interface Papa{
+interface Papa {
     void papa();
 }
+
 @FunctionalInterface
-interface Putra extends Papa{
+interface Putra extends Papa {
     void papa();
     /*Note:
      1.if we can extend the one interface to other interface the all property can extend by child interface
@@ -20,4 +15,11 @@ interface Putra extends Papa{
      4.if removed @FunctionalInterface Annotation then third point error gone because child method can not behave a FunctionalInterface
      more points are there, but we discuss the latter..............*/
 
+}
+
+public class InheritenceRelationship {
+    public static void main(String[] args) {
+
+        System.out.println("code run Happily...");
+    }
 }
