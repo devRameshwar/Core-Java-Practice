@@ -11,7 +11,7 @@ public class TreeMapWithLambda {
         treeMap.put(500, "Sreekanth");
         treeMap.put(400, "Birju");
         treeMap.put(600, "Bunny");
-        //the default nature of sorting order is descending with respect of a key
+        // sorting order is descending with respect of a key
         System.out.println(treeMap);
         //Output: {600=Bunny, 500=Sreekanth, 400=Birju, 300=Raju, 100=Anuj}
     }
