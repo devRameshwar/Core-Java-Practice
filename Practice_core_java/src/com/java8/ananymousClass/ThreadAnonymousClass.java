@@ -2,21 +2,15 @@ package Practice_core_java.src.com.java8.ananymousClass;
 
 public class ThreadAnonymousClass {
     public static void main(String[] args) {
-        //Note: if there is an anonymous class then it is a chance to replace with lambda expression
-        Runnable run = new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 9; i++) {
-                    System.out.println("inner class is running.."+i);
-                }
+        Thread thread = new Thread(() -> {
+            for (int i = 0; i < 5; i++) {
+                System.out.println("child Thread is running..."+i);
             }
-            /*Note: here an anonymous class is created, and it is implemented with Runnable interface
-              and its object is assign in Runnable interface reference. */
-        };
-        Thread thread = new Thread(run);
+            /*Note: Here an Anonymous class is created and its object is assign in Thread class  */
+        });
         thread.start();
-        for (int i = 0; i < 9; i++) {
-            System.out.println("outer main class is running.."+i);
+        for (int i = 0; i < 5; i++) {
+            System.out.println("main thread class is running.."+i);
         }
     }
 }
