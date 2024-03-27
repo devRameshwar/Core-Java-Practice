@@ -14,7 +14,7 @@ public class StaticCar implements Tata{
     public static void main(String[] args) {
         Tata tata=new StaticCar();
         //we are unable to call show method to help of interface object reference we cannot access
-        //tata.show
+        //tata.show();
         //then we called with help of class name
         StaticCar.show();
         Tata.show();
