@@ -11,7 +11,7 @@ public class CollectionReverceOrder {
 
 		List<Employee> list = Arrays.asList(new Employee(101, "Rameshwar", "Varanasi"),
 				new Employee(105, "Sivangi", "Jaunpur"), new Employee(103, "Anuj", "Payagraj"),
-				new Employee(102, "Ashok", "Agara"), new Employee(104, "Arjun", "Lalpur"));
+				new Employee(102, "Ashok Singh", "Agara"), new Employee(104, "Arjun", "Lalpur"));
 		System.out.println("++++++++++++++++++Printing Employee List Astise+++++++++++++++++++++++++++");
 		list.forEach(System.out::println);
 
