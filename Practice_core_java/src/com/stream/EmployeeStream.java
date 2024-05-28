@@ -66,6 +66,53 @@ public class EmployeeStream {
         System.out.println(list);
 
 
+
+    }
+
+    //distinct() method and forEach method
+    public static void getCityName(){
+        List<Employee> employeeList = Arrays.asList(new Employee(101, "Rameshwar singh", 50000, 35, "male", "operation"),
+                new Employee(101, "Sivi singh", 40000, 25, "female", "operation"),
+                new Employee(102, "Ram", 35000, 25, "male", "development"),
+                new Employee(103, "Anuj", 50000, 30, "male", "operation"),
+                new Employee(101, "Ramesh singh", 45000, 35, "male", "development"));
+
+        employeeList.stream().map(e->e.getEmployeeId()).distinct().forEach(System.out::println);
+
+        //getting count of male employee
+        long count = employeeList.stream().filter(e -> e.getGander().equalsIgnoreCase("male")).count();
+        System.out.println(count);
+
+        //getting first three employee
+        employeeList.stream().limit(3).forEach(System.out::println);
+
+        //collecting first three male employee name
+        List<String> maleEmployee = employeeList.stream().filter(e -> e.getGander().equalsIgnoreCase("male"))
+                .limit(3).map(e -> e.getEmployeeName()).toList();
+        System.out.println("first three male employee name:"+maleEmployee);
+
+        //skip three male employee
+        employeeList.stream().filter(e->e.getGander().equalsIgnoreCase("male")).skip(3).forEach(System.out::println);
+
+        //sorting the employee name
+        List<String> nameListSorted = employeeList.stream().map(e -> e.getEmployeeName()).sorted().toList();
+        System.out.println(nameListSorted);
+
+        //sorting employee object
+        List<Employee> employees = employeeList.stream().sorted((o1, o2) -> o1.getEmployeeId() - o2.getEmployeeId()).toList();
+        System.out.println(employees);
+        //sorting employee object with respect to name
+        employeeList.stream().sorted((e1,e2)-> e1.getEmployeeName().compareTo(e2.getEmployeeName())).map(e->e.getEmployeeName()).forEach(System.out::println);
+
+        //collect data of employee min salary
+        float minSalary = employeeList.stream().min((e1, e2) -> (int) (e1.getSalary() - e2.getSalary())).get().getSalary();
+
+        System.out.println(minSalary);
+
+        //Find the Average of the salary
+        double averageSalary = employeeList.stream().mapToDouble(e -> e.getSalary()).average().getAsDouble();
+        System.out.println("Average salary of all employee: "+averageSalary);
+
     }
 
 
@@ -75,7 +122,9 @@ public class EmployeeStream {
         //anyMatch();
         //allMatch();
         //createObject();
-        filterStreamOperation();
+        //filterStreamOperation();
+        getCityName();
+
 
     }
 }
@@ -149,6 +198,18 @@ class Employee {
 
     public void setSalary(float salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", employeeName='" + employeeName + '\'' +
+                ", salary=" + salary +
+                ", age=" + age +
+                ", gander='" + gander + '\'' +
+                ", departments='" + departments + '\'' +
+                '}';
     }
 }
 
