@@ -5,6 +5,7 @@ public class LazyLoading {
     private static LazyLoading instance;
 
     public LazyLoading() {
+
         System.out.println("Object is created...");
     }
 
@@ -18,6 +19,9 @@ public class LazyLoading {
     }
 
     public static void main(String[] args) {
+
+        System.out.println(getLazyLoading());
+
         System.out.println(getLazyLoading());
     }
 }

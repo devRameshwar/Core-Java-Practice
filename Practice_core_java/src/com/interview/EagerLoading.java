@@ -9,13 +9,17 @@ public class EagerLoading {
     }
 
     public static EagerLoading getInstance(){
+
         System.out.println("Return the object.....");
         return instance;
     }
 
     public static void main(String[] args) {
 
-        System.out.println(getInstance());
+       // System.out.println(getInstance());
+        //System.out.println(getInstance());
+        System.out.println(instance);
+        System.out.println(instance);
     }
 
 }
