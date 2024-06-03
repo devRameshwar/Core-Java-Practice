@@ -3,6 +3,7 @@ package Practice_core_java.src.com.stream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.OptionalDouble;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.Arrays.stream;
@@ -112,7 +113,11 @@ public class EmployeeStream {
         //Find the Average of the salary
         double averageSalary = employeeList.stream().mapToDouble(e -> e.getSalary()).average().getAsDouble();
         System.out.println("Average salary of all employee: "+averageSalary);
-
+        
+        
+        //peek() method used to trace the stream data in middle operation
+        List<Employee> employeeAge = employeeList.stream().filter(e -> e.getAge() == 25).peek(System.out::println).collect(Collectors.toList());
+        System.out.println(employeeAge);
     }
 
 
