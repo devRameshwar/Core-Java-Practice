@@ -1,7 +1,6 @@
 package Practice_core_java.objectClass;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
 
 public class GetClassMethod {
 
@@ -41,8 +40,29 @@ public class GetClassMethod {
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     }
 
+    //Type compression
+    public static void typeCompression(){
+            Object object1="Hello Ramu";
+            Object object2=1911;
+
+           /* if (object1.getClass()==String.class){
+                System.out.println("This is String class object");
+            }else {
+                System.out.println("This is Not a String class object");
+            } */
+        System.out.println(object1.getClass() == String.class ? "This is String class object" : "This is Not a String class object");
+
+        System.out.println(object2.getClass()==Number.class?"This is number class Object":"This is not a number class object");
+
+
+
+
+    }
+
     public static void main(String[] args) {
-        gettingClassInformation();
+        //gettingClassInformation();
+        typeCompression();
+
     }
 }
 
