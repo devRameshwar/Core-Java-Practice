@@ -1,4 +1,4 @@
-package Practice_core_java.generics;
+package Practice_core_java.src.com.generics;
 
 import java.util.Arrays;
 import java.util.List;

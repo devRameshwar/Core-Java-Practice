@@ -1,4 +1,4 @@
-package Practice_core_java.objectClass;
+package Practice_core_java.src.com.objectClass;
 
 import java.lang.reflect.Method;
 
@@ -19,7 +19,7 @@ public class GetClassMethod {
 
         Student student = new Student(101, "Rameshwar Singh");
         Class<?> infoStudent = student.getClass();
-        System.out.println("Student class info: " + infoStudent);//Student class info: class Practice_core_java.objectClass.Student
+        System.out.println("Student class info: " + infoStudent);//Student class info: class Practice_core_java.src.com.objectClass.Student
 
 
         //calling reflectionMethods

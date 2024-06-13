@@ -1,4 +1,4 @@
-package Practice_core_java.objectClass;
+package Practice_core_java.src.com.objectClass;
 
 import java.util.Objects;
 
