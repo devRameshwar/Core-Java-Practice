@@ -3,7 +3,6 @@ package Practice_core_java.src.com.stream;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class StreamOperationClass {
 
@@ -38,6 +37,20 @@ public class StreamOperationClass {
                 equalsIgnoreCase("Operation")).map(e->e.getSalary()).min((e1,e2)->e1.compareTo(e2)).stream().peek(System.out::println).toList();
     }
 
+    //getting data with respect Employee gender
+    public static void gettingEmployeeWithGender(List<EmployeeDetails> list){
+        System.out.println("=================================[Employee only male]=============================");
+        list.stream().filter(e->e.getGender().equalsIgnoreCase("male")).peek(System.out::println).toList();
+        System.out.println("=================================[Employee only male & Department is Developer]=============================");
+        list.stream().filter(e->e.getGender().equalsIgnoreCase("Female")).
+                filter(e->e.getDepartment().equalsIgnoreCase("developer")).peek(System.out::println).toList();
+
+        System.out.println("=================================[Employee only Female & Department is Developer Max salary]=============================");
+        EmployeeDetails maxSalaryFemale = list.stream().filter(e -> e.getDepartment().equalsIgnoreCase("developer"))
+                .filter(e -> e.getGender().equalsIgnoreCase("female")).max((e1, e2) -> (int) (e1.getSalary() - e2.getSalary())).get();
+        System.out.println(maxSalaryFemale);
+    }
+
 
     public static void main(String[] args) {
 
@@ -54,7 +67,8 @@ public class StreamOperationClass {
                 new EmployeeDetails(110, "Raj", 5000.50, "Developer", LocalDate.of(2014, 6, 20), "Male"));
 
         //employeeName(employeeList);
-        getEmployeeThairDepartment(employeeList);
+        //getEmployeeThairDepartment(employeeList);
+        gettingEmployeeWithGender(employeeList);
     }
 }
 
