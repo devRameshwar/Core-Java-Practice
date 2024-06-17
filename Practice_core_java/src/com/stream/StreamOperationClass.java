@@ -1,8 +1,9 @@
 package Practice_core_java.src.com.stream;
 
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StreamOperationClass {
 
@@ -49,6 +50,65 @@ public class StreamOperationClass {
         EmployeeDetails maxSalaryFemale = list.stream().filter(e -> e.getDepartment().equalsIgnoreCase("developer"))
                 .filter(e -> e.getGender().equalsIgnoreCase("female")).max((e1, e2) -> (int) (e1.getSalary() - e2.getSalary())).get();
         System.out.println(maxSalaryFemale);
+
+        System.out.println("=================================[Employee only Male & Department is Developer Min salary]=============================");
+        Double maxSalary = list.stream().filter(e -> e.getDepartment().equalsIgnoreCase("developer")).filter(e -> e.getGender().equalsIgnoreCase("male"))
+                .min((e1, e2) -> (int) (e2.getSalary() - e1.getSalary())).map(e -> e.getSalary()).get();
+        System.out.println(maxSalary);
+
+    }
+    public static void collectorsClassMethods(List<EmployeeDetails> list){
+        Map<String, Double> employeeNameSalary = list.stream().collect(Collectors.toMap(e -> e.getEmployeeName(), e -> e.getSalary()));
+        System.out.println(employeeNameSalary);
+        //groupingBy method
+        //getting Average Salary Gender
+        Map<String, Double> genderAvgSalary = list.stream().collect(Collectors.groupingBy(e -> e.getGender(), Collectors.averagingDouble(e -> e.getSalary())));
+        System.out.println(genderAvgSalary);
+
+        //getting average salary department
+        Map<String, Double> departmentAverageSalary = list.stream().collect(Collectors.groupingBy(e -> e.getDepartment(), Collectors.averagingDouble(e -> e.getSalary())));
+        System.out.println(departmentAverageSalary );
+
+        //counting()
+        //getting count employee with respect to gender
+        Map<String, Long> countWithGender = list.stream().collect(Collectors.groupingBy(e -> e.getGender(), Collectors.counting()));
+        System.out.println(countWithGender);
+
+        //find employee name and sort employee name with respect its length
+        List<String> sortedWithLength = list.stream().map(e -> e.getEmployeeName()).peek(System.out::println).sorted(Comparator.comparingInt(e ->
+                e.toString().length()).reversed()).toList();
+        System.out.println(sortedWithLength);
+
+        System.out.println("==========================Employee name and his joining date=========================");
+        Map<String, LocalDate> employeeNameJoiningDate = list.stream().collect(Collectors.toMap(e -> e.getEmployeeName(), e -> e.getJoiningDate()));
+        System.out.println(employeeNameJoiningDate);
+
+        System.out.println("=================================Getting All salary with respect to gender ==========================");
+        //list.stream().collect(Collectors.toMap(e->e.getGender(),Collectors.))
+    }
+
+    public static void dateOperation(List<EmployeeDetails> list){
+
+        System.out.println("=================================Getting All Employee list Who Join After 2017==========================");
+        list.stream().filter(e->e.getJoiningDate().isAfter(LocalDate.of(2017,01,01))).peek(System.out::println).toList();
+
+        System.out.println("=================================Getting All Employee list Who Join before 2015==========================");
+        list.stream().filter(e->e.getJoiningDate().isBefore(LocalDate.of(2015,11,11))).forEach(System.out::println);
+
+        Map<String, Long> departmentNumberOfEmployee = list.stream().collect(Collectors.groupingBy(e -> e.getDepartment(), Collectors.counting()));
+        System.out.println(departmentNumberOfEmployee);
+        //Summing all employee salary
+        System.out.println("Total salary ");
+        Double totelSalary = list.stream().collect(Collectors.summingDouble(e -> e.getSalary()));
+        System.out.println(totelSalary);
+        System.out.println("=============Total salary developer=================");
+        Double developerTotalSalary = list.stream().filter(e -> e.getDepartment().equalsIgnoreCase("developer")).collect(Collectors.summingDouble(e -> e.getSalary()));
+        System.out.println(developerTotalSalary);
+        System.out.println("=============Total salary department wise=================");
+        Map<String, Double> salaryDepartmentWise = list.stream().collect(Collectors.groupingBy(e -> e.getDepartment(), Collectors.summingDouble(e -> e.getSalary())));
+
+        System.out.println(salaryDepartmentWise);
+
     }
 
 
@@ -56,7 +116,7 @@ public class StreamOperationClass {
 
         List<EmployeeDetails> employeeList = Arrays.asList(new EmployeeDetails(111, "Vijay", 5500.00, "Developer", LocalDate.of(2014, 6, 20), "Male"),
                 new EmployeeDetails(100, "Sivani", 3500.50, "Operation", LocalDate.of(2015, 5, 25), "Female"),
-                new EmployeeDetails(102, "Ravi", 4500.00, "Developer", LocalDate.of(2013, 4, 12), "Male"),
+                new EmployeeDetails(102, "Ravi", 6500.00, "Developer", LocalDate.of(2013, 4, 12), "Male"),
                 new EmployeeDetails(103, "Anubhav", 5000.50, "Operation", LocalDate.of(2014, 6, 20), "Male"),
                 new EmployeeDetails(104, "Akanksha", 5000.50, "Developer", LocalDate.of(2017, 8, 25), "Female"),
                 new EmployeeDetails(105, "Arpit", 5000.50, "Operation", LocalDate.of(2017, 11, 20), "Male"),
@@ -68,7 +128,10 @@ public class StreamOperationClass {
 
         //employeeName(employeeList);
         //getEmployeeThairDepartment(employeeList);
-        gettingEmployeeWithGender(employeeList);
+        //gettingEmployeeWithGender(employeeList);
+        //collectorsClassMethods(employeeList);
+        dateOperation(employeeList);
+
     }
 }
 
