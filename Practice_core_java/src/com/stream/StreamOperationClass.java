@@ -3,7 +3,6 @@ package Practice_core_java.src.com.stream;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StreamOperationClass {
 
@@ -84,7 +83,8 @@ public class StreamOperationClass {
         System.out.println(employeeNameJoiningDate);
 
         System.out.println("=================================Getting All salary with respect to gender ==========================");
-        //list.stream().collect(Collectors.toMap(e->e.getGender(),Collectors.))
+        Map<String, DoubleSummaryStatistics> summarySalaryWithRespectGender = list.stream().collect(Collectors.groupingBy(e -> e.getGender(), Collectors.summarizingDouble(e -> e.getSalary())));
+        System.out.println(summarySalaryWithRespectGender);
     }
 
     public static void dateOperation(List<EmployeeDetails> list){
@@ -106,8 +106,12 @@ public class StreamOperationClass {
         System.out.println(developerTotalSalary);
         System.out.println("=============Total salary department wise=================");
         Map<String, Double> salaryDepartmentWise = list.stream().collect(Collectors.groupingBy(e -> e.getDepartment(), Collectors.summingDouble(e -> e.getSalary())));
-
         System.out.println(salaryDepartmentWise);
+
+        System.out.println("=============Max/ Min  salary department wise=================");
+        Map<String, Optional<EmployeeDetails>> maxSallaryDepartmentWise = list.stream().collect(Collectors.groupingBy(e -> e.getDepartment(), Collectors.maxBy((e1, e2) -> e2.getSalary().compareTo(e1.getSalary()))));
+        System.out.println(maxSallaryDepartmentWise);
+        //{Developer=Optional[EmployeeDetails{employeeId=104, employeeName='Akanksha', salary=5000.5, department='Developer', joiningDate='2017-08-25', gender='Female'}], Operation=Optional[EmployeeDetails{employeeId=100, employeeName='Sivani', salary=3500.5, department='Operation', joiningDate='2015-05-25', gender='Female'}]}
 
     }
 
