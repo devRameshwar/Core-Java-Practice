@@ -2,7 +2,7 @@ package Practice_core_java.src.com.optionalClass;
 
 import java.util.Optional;
 
-public class Operation2 {
+public class Operation3 {
 
     public static Optional<String> operation() {
         String string = null;
@@ -16,18 +16,13 @@ public class Operation2 {
     }
 
     public static void main(String[] args) {
-        Optional<String> operation = operation();
-        operation.ifPresent(e -> {
-            System.out.println(e.toUpperCase());
-            System.out.println("Value is present....");
-        });
 
-       Optional<String> optional1= operation();
-       optional1.ifPresentOrElse(e->{
-           System.out.println(e.toUpperCase());
-           System.out.println("value is present...");
-       },()-> System.out.println("value is not present.....perform some Exception logic.."));
+        Optional<String> operation = operation();
+
+        //if value is present then return same value else return optional class value
+        String string = operation.or(() -> Optional.of("Optional class object..")).get();
+        System.out.println(string);
+
 
     }
-
 }
