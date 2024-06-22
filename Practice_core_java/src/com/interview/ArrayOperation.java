@@ -2,8 +2,6 @@ package Practice_core_java.src.com.interview;
 
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class ArrayOperation {
 
@@ -33,6 +31,17 @@ public class ArrayOperation {
     }
 
     public static void main(String[] args) {
-        reverse();
+        //reverse();
+        check();
+    }
+
+    public static void check(){
+        String string="Singh";
+        String rev="";
+        for (int i = string.length()-1; i >=0; i--) {
+            System.out.println(string.charAt(i));
+            rev =rev+string.charAt(i);
+        }
+        System.out.println(rev);
     }
 }
