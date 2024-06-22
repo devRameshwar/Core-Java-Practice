@@ -1,6 +1,6 @@
 package Practice_core_java.src.com.methodReferencing;
 
-interface ReverseString{
+interface ReverseString {
     StringBuffer reverse();
 }
 
@@ -10,7 +10,7 @@ public class ReferenceClass {
 
         StringBuffer stringBuffer = new StringBuffer("Good Morning");
         //reverse is a non-static method then we are called with help of StringBuffer class object reference
-        ReverseString reverseString=stringBuffer::reverse;
+        ReverseString reverseString = stringBuffer::reverse;
 
         System.out.println(reverseString.reverse());
     }
