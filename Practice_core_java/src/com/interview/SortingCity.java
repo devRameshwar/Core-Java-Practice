@@ -14,7 +14,6 @@ public class SortingCity {
         cityList.sort(Comparator.comparingInt(String::length).reversed());
 
         List<String> sortedCity = cityList.stream().sorted(Comparator.comparingInt(c -> c.toString().length()) .reversed()).collect(Collectors.toList());
-
         System.out.println(sortedCity);
         System.out.println(cityList);
     }
