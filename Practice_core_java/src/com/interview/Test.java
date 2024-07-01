@@ -33,6 +33,10 @@ public class Test {
         System.out.println(count);
     }
 
+    public static void palindromeString(){
+
+    }
+
     public static void main(String[] args) {
         count();
     }

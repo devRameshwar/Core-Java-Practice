@@ -3,11 +3,18 @@ package Practice_core_java.src.com.java8.stream;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StudentOperation {
 
     public static void operation(List<Student> studentList){
-            studentList.stream().map(e->e.getSubject()).peek(System.out::println).toList();
+           //studentList.stream().map(e->e.getSubject()).peek(System.out::println).toList();
+
+        Map<String, List<String>> nameSubjectMap = studentList.stream().collect(Collectors.toMap(e -> e.getStudentName(),
+                s -> s.getSubject()));
+        System.out.println(nameSubjectMap);
+
     }
 
     public static void main(String[] args) {
@@ -17,9 +24,8 @@ public class StudentOperation {
                 new Student(104, "Bandana", "female", Arrays.asList("Hindhi", "English", "Maths", "Science", "Art"), LocalDate.of(2020, 03, 13)),
                 new Student(105, "Zaheer", "male", Arrays.asList("Hindhi", "English", "Maths", "Science", "Art"), LocalDate.of(2019, 05, 8)));
 
-        studentList.forEach(System.out::println);
-
-       // operation(studentList);
+        //studentList.forEach(System.out::println);
+        operation(studentList);
     }
 }
 
