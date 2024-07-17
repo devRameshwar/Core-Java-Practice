@@ -1,4 +1,4 @@
-package Practice_core_java.src.com.java8.defaultMethod;
+package com.java8.defaultMethod;
 interface Maruti{
     default void show(){
         System.out.println("MARUTI METHOD is called....");

@@ -1,4 +1,4 @@
-package Practice_core_java.src.com.java8.staticMethod;
+package com.java8.staticMethod;
 interface Tata{
     public static void show(){
         System.out.println("Tata show method called...");

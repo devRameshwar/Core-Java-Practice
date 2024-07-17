@@ -1,4 +1,4 @@
-package Practice_core_java.src.com.java8.lamdaExpression;
+package com.java8.lamdaExpression;
 
 //creating a functional interface to invoked lambda Expression
 @FunctionalInterface

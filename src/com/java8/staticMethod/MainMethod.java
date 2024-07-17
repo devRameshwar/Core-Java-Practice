@@ -1,4 +1,4 @@
-package Practice_core_java.src.com.java8.staticMethod;
+package com.java8.staticMethod;
 
 public interface MainMethod {
     static void main(String[] args) {

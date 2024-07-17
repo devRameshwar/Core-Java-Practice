@@ -1,4 +1,4 @@
-package Practice_core_java.src.com.objectClass.toString;
+package com.objectClass.toString;
 
 public class ToStringDemo {
 

@@ -1,4 +1,4 @@
-package Practice_core_java.src.com.java8.function;
+package com.java8.function;
 
 import java.util.function.Function;
 

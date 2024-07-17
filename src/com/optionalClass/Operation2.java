@@ -1,4 +1,4 @@
-package Practice_core_java.src.com.optionalClass;
+package com.optionalClass;
 
 import java.util.Optional;
 

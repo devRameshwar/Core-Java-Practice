@@ -1,4 +1,4 @@
-package Practice_core_java.src.com.java8.functionalInterface;
+package com.java8.functionalInterface;
 
 public class NormalThreadClass implements Runnable{
     public static void main(String[] args) {

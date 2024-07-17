@@ -1,4 +1,4 @@
-package Practice_core_java.src.com.objectClass.toString;
+package com.objectClass.toString;
 import javax.sound.midi.Soundbank;
 import  java.lang.Integer;
 public class ToStringInStringAndWrapperClass {

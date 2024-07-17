@@ -1,4 +1,4 @@
-package Practice_core_java.src.com.objectClass.equals;
+package com.objectClass.equals;
 
 public class EqualsMethod {
 

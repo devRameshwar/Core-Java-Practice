@@ -1,4 +1,4 @@
-package Practice_core_java.src.com.java8.lamdaExpression;
+package com.java8.lamdaExpression;
 @FunctionalInterface
 interface Show1{
     //by default in Interface all method are public abstract

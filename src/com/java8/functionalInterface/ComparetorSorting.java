@@ -1,4 +1,4 @@
-package Practice_core_java.src.com.java8.functionalInterface;
+package com.java8.functionalInterface;
 
 import java.util.ArrayList;
 import java.util.Collections;

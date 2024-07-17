@@ -1,4 +1,4 @@
-package Practice_core_java.src.com.java8.stream;
+package com.java8.stream;
 
 import java.util.ArrayList;
 import java.util.List;

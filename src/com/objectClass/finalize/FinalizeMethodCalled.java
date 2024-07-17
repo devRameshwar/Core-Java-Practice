@@ -1,4 +1,4 @@
-package Practice_core_java.src.com.objectClass.finalize;
+package com.objectClass.finalize;
 
 public class FinalizeMethodCalled {
     int a;
