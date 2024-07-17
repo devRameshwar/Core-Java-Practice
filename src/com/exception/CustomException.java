@@ -11,7 +11,12 @@ public class CustomException {
     }
 
     public static void main(String[] args) {
-        checkNumber(-9);
+        try{
+        	checkNumber(-9);
+        }catch (NumberCheckException e) {
+			e.printStackTrace();
+        	System.out.println(e.getMessage());
+		}
     }
 }
 
