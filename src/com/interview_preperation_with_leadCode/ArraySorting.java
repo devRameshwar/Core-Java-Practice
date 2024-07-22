@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class ArraySorting {
 	
@@ -12,6 +14,10 @@ public class ArraySorting {
 		System.out.println("Method is called....");
 		long count = Arrays.stream(a).boxed().filter(e->e.equals(2)).count();
 		System.out.println(count);
+   Object[] array = Arrays.stream(a).boxed().distinct().toArray();
+	    
+	    
+	     
 	}
 
 	public static void main(String[] args) {
