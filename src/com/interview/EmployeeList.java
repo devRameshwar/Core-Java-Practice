@@ -2,6 +2,7 @@ package com.interview;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 
 public class EmployeeList {
@@ -15,6 +16,8 @@ public class EmployeeList {
 		asList.sort(new Employee());
 		
 		asList.forEach(System.out::println);
+		
+		HashSet<Object> hashSet = new HashSet<>();
 
 	}
 }
