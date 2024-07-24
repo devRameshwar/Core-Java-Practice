@@ -2,7 +2,6 @@ package com.collection.map;
 
 import java.util.HashMap;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class FequencyOfCharecter {
 
@@ -15,9 +14,17 @@ public class FequencyOfCharecter {
 
 	private static void removedDublicate(String string) {
 
-		  String string2 = string.chars().distinct().mapToObj(s->String.valueOf((char)s)).collect(Collectors.joining() );
+		String string2 = string.chars().distinct().mapToObj(s -> String.valueOf((char) s))
+				.collect(Collectors.joining());
 		System.out.println(string2);
-		
+
+		String collect = string.chars().boxed().sorted((e1, e2) -> e2 - e1)
+				.map(e -> String.valueOf((char) e.intValue())).collect(Collectors.joining());
+		System.out.println("=============>  " + collect);
+
+		long count = string.chars().boxed().filter(e -> e == 's').count();
+		System.out.println(count);
+
 		HashMap<Character, Boolean> hashMap = new HashMap<Character, Boolean>();
 
 		String nonDublicate = "";
@@ -29,7 +36,7 @@ public class FequencyOfCharecter {
 			}
 
 		}
-			System.out.println(nonDublicate);
+		System.out.println(nonDublicate);
 	}
 
 	private static void charCount(String string) {
