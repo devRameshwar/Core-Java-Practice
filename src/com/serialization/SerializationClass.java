@@ -19,12 +19,11 @@ public class SerializationClass {
 		desialization();
 	}
 
-	@SuppressWarnings("resource")
 	private static void desialization() throws IOException, FileNotFoundException, ClassNotFoundException {
 
 		System.out.println("File going to read..");
 
-		FileInputStream fileInputStream = new FileInputStream("C:\\Users\\Ramu_Coder\\Desktop\\employee.txt");
+		FileInputStream fileInputStream = new FileInputStream("employee.txt");
 
 		ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 
@@ -41,7 +40,7 @@ public class SerializationClass {
 
 	private static void serialization(Employee employee) throws IOException, ClassNotFoundException {
 		// serialization
-		FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\Ramu_Coder\\Desktop\\employee.txt");
+		FileOutputStream fileOutputStream = new FileOutputStream("employee.txt");
 
 		ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 		System.out.println("object going to Serialization..");
