@@ -1,15 +1,18 @@
 package com.collection.map;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class FequencyOfCharecter {
 
 	public static void main(String[] args) {
 
-		charCount("hello");
+		charCount("rrsmdrrsmdsmdr");
 
-		removedDublicate("Ramesssshwar");
+		removedDublicate("qwertyuiopasdfghjklzxcvbnm");
 	}
 
 	private static void removedDublicate(String string) {
@@ -53,6 +56,23 @@ public class FequencyOfCharecter {
 			}
 		}
 		System.out.println(hashMap);
+		Set<Entry<Character,Integer>> entrySet = hashMap.entrySet();
+		Iterator<Entry<Character, Integer>> iterator = entrySet.iterator();
+		
+		Integer def=0; Character k=' ';
+		
+		while (iterator.hasNext()) {
+			 Entry<Character,Integer> next = iterator.next();
+			 System.out.println(next.getKey()+"\t"+next.getValue());
+			 Integer value = next.getValue();
+			 if(def<value) {
+				 def=value;
+				 k=next.getKey();
+			 }
+			
+		}
+		System.out.println("big feq: "+k+" "+def);
+		 
 
 	}
 
