@@ -15,7 +15,7 @@ public class ExternalizationDemo {
 
 		Student student = new Student(101, "Rameshwar");
 
-		// externalization(student);
+		 externalization(student);
 
 		deExternalization();
 
@@ -23,19 +23,18 @@ public class ExternalizationDemo {
 
 	private static void deExternalization() throws IOException, ClassNotFoundException {
 
-		System.out.println("File goning to read..");
+		System.out.println("File going to read..");
 
 		FileInputStream fileInputStream = new FileInputStream("student.txt");
 		ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 
 		Student student = new Student();
 		student.readExternal(objectInputStream);
-		
+
 		fileInputStream.close();
 		objectInputStream.close();
-		
-		System.out.println("student id: "+student.id+" student Name: "+student.id);
 
+		System.out.println("Student ID: " + student.id + ", Student Name: " + student.name);
 	}
 
 	private static void externalization(Student student) throws IOException {
@@ -85,9 +84,9 @@ class Student implements Externalizable {
 	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
 
 		System.out.println("readExternal method is called....");
+		System.out.println("readExternal method is called....");
+		id = in.readInt();
 		name = (String) in.readObject();
-        id = in.readInt();
-        // Manually handling password, if needed
 
 	}
 
