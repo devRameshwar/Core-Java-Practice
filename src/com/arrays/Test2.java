@@ -8,7 +8,7 @@ public class Test2 {
 
 	public static void main(String[] args) {
 
-		// Test2 test2=bulder().id(12).build();
+		// Test2 test2=Test2.bulder().id(12).build();
 
 		// test();
 
@@ -28,8 +28,6 @@ public class Test2 {
 				hashMap.put(c, hashMap.getOrDefault(c, 0) + 1);
 			}
 		}
-
-
 		System.out.println(hashMap);
 
 	}
