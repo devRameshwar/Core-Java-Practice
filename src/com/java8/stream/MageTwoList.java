@@ -15,7 +15,12 @@ public class MageTwoList {
 				new FacebookEmployee(106, "Virat"), new FacebookEmployee(107, "Mohan"),
 				new FacebookEmployee(108, "Tittu"));
 
-		List<FacebookEmployee> margeList = Stream.of(employeeList1, employeeList2).flatMap(m -> m.stream()).toList();
+		List<FacebookEmployee> employeeList3 = Arrays.asList(new FacebookEmployee(105, "Ramesh"),
+				new FacebookEmployee(106, "Virat"), new FacebookEmployee(107, "Mohan"),
+				new FacebookEmployee(108, "Tittu"));
+
+		List<FacebookEmployee> margeList = Stream.of(employeeList1, employeeList2, employeeList3)
+				.flatMap(m -> m.stream()).toList();
 
 		margeList.forEach(e -> System.out.println(e));
 	}
@@ -57,7 +62,7 @@ class FacebookEmployee {
 
 	@Override
 	public String toString() {
-		return " employeeId=" + employeeId + ", name=" + name ;
+		return " employeeId=" + employeeId + ", name=" + name;
 	}
 
 }
