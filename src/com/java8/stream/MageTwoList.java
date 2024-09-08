@@ -1,7 +1,12 @@
 package com.java8.stream;
 
 import java.util.Arrays;
+import java.util.IntSummaryStatistics;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class MageTwoList {
@@ -25,9 +30,35 @@ public class MageTwoList {
 		margeList.forEach(e -> System.out.println(e));
 	}
 
+	public static void oparation() {
+		List<Integer> numbers = Arrays.asList(2, 0, 1, 3, 5, 6, 8, 7, 10, 9);
+
+		Integer integer = numbers.stream().collect(Collectors.maxBy((e1, e2) -> e1 - e2)).get();
+		System.out.println(integer);
+
+		List<Integer> sort = numbers.stream().sorted((e1, e2) -> e2 - e1).collect(Collectors.toList());
+		System.out.println(sort);
+
+		int averag = numbers.stream().collect(Collectors.averagingInt(e -> e)).intValue();
+		System.out.println(averag);
+
+		IntSummaryStatistics sum = numbers.stream().collect(Collectors.summarizingInt(e -> Integer.sum(0, e)));
+		System.out.println(sum.getSum());
+
+		String string = "RAameshwar";
+
+		Entry<Character, Long> entry = string.toLowerCase().chars().mapToObj(e -> (char) e)
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).entrySet().stream()
+				.max(Map.Entry.comparingByValue()).get();
+		System.out.println(entry.getKey()+ "\t"+ entry.getValue());
+
+	}
+
 	public static void main(String[] args) {
 
-		margetwoList();
+		// margetwoList();
+		oparation();
+
 	}
 
 }
