@@ -9,10 +9,31 @@ import java.util.stream.Collectors;
 public class DevEmployeeOparation {
 
 	public static void sortingWithSalary(List<DevEmployee> employees) {
-		
-		 Optional<DevEmployee> findFirst = employees.stream().sorted((e1,e2)->(int)e2.getSalary()-(int)e1.getSalary()).skip(2).findFirst();
+
+		Optional<DevEmployee> findFirst = employees.stream()
+				.sorted((e1, e2) -> (int) e2.getSalary() - (int) e1.getSalary()).skip(2).findFirst();
 		System.out.println(findFirst.get());
-		
+
+	}
+
+	public static void filterEmployee(List<DevEmployee> employees) {
+
+		List<DevEmployee> list = employees.stream().filter(e -> e.getGender().equalsIgnoreCase("female")).toList();
+
+		// list.forEach(System.out::println);
+
+		List<String> employeeName = employees.stream().filter(e -> e.getGender().equalsIgnoreCase("male"))
+				.map(e -> e.getName()).toList();
+		// employeeName.forEach(System.out::println);
+
+		DevEmployee maxSalary = employees.stream().filter(e -> e.getGender().equals("female"))
+				.sorted((e1, e2) -> (int) e2.getSalary() - (int) e1.getSalary()).findFirst().get();
+
+		System.out.println(maxSalary);
+
+		DevEmployee minSalary = employees.stream().filter(e -> e.getGender().equals("female"))
+				.sorted((e1, e2) -> (int) e1.getSalary() - (int) e2.getSalary()).findFirst().get();
+		System.out.println(minSalary);
 	}
 
 	public static void main(String[] args) {
@@ -24,7 +45,8 @@ public class DevEmployeeOparation {
 				new DevEmployee(106, "Sivangi", 21000.0, LocalDate.of(2017, 8, 22), "female", "Software developer"),
 				new DevEmployee(107, "Arun", 15000.0, LocalDate.of(2009, 11, 23), "male", "Tester"));
 
-		sortingWithSalary(employeeList);
+		// sortingWithSalary(employeeList);
+		filterEmployee(employeeList);
 	}
 
 }
